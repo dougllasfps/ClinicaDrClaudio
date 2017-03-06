@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title><ui:insert name="title" /></title>
+</h:head>
+<h:body>
+	<h:outputStylesheet library="css" name="default.css" />
+	<h:outputStylesheet library="css" name="layout.css" />
+	<div id="page">
+		
+		<p:outputPanel>
+			<h1 id="headerTitle">MedSystem</h1>
+			<h3>Centro Médico Parquelândia</h3>
+		</p:outputPanel>
+		<h:form id="formMenu">
+			<div id="menu">
+
+				<ul>
+					<li><h:commandLink value="Pacientes" styleClass="menuLinks"
+							action="#{pacienteController.listar}" />
+					</li>
+					<li><h:commandLink value="Medicos" styleClass="menuLinks"
+							action="consulta-medicos" /></li>
+					<li><h:commandLink value="Especialidades"
+							styleClass="menuLinks" action="#{especialidadeController.listar}" />
+					</li>
+					<li><h:commandLink value="Convenios" styleClass="menuLinks"
+							action="#{convenioController.listar}" /></li>
+					<li><h:commandLink value="Consultas" styleClass="menuLinks"
+							action="#{consultaController.listar}" />
+						<ul>
+							<li><h:commandLink value="Ver Consultas"
+									action="/consultas-realizadas" /></li>
+							<li><h:commandLink value="Marcar Consulta"
+									action="/consultas" /></li>
+						</ul></li>
+					<li><h:commandLink value="Sair" styleClass="menuLinks"
+							action="#{loginController.doLogout}" /></li>
+
+				</ul>
+			</div>
+		</h:form>
+		<div id="conteudo">
+			<ui:insert name="conteudo" />
+		</div>
+		<div id="footer">
+			<h:outputText
+				value="Desenvolvido por Alunos PIN FLF 2014 - Todos os direitos reservados" />
+		</div>
+	</div>
+</h:body>
+</html>

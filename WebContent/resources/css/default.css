@@ -1,0 +1,244 @@
+.ui-widget {
+	font-size: 12px;
+}
+
+#pesquisa {
+	width: 880px;
+	margin: auto;
+}
+
+#divTabelas {
+	margin-top: 20px;
+	margin-bottom: auto;
+}
+
+#cadPaciente {
+	width: 800px;
+	margin: auto;
+}
+
+#cadPaciente legend {
+	font-size: 20px;
+	font-family: Arial, serif;
+	color: #5D6B74;
+}
+
+.panelGrid {
+	padding: 10px;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.panelPesquisa {
+	margin-left: 50px;
+}
+
+.labelInput {
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: #5D6B74;
+}
+
+.input {
+	font-size: 12px;
+	margin: 0;
+	outline: medium none;
+	padding: 4px;
+	font-weight: normal;
+}
+
+.checkBox {
+	background: -ms-linear-gradient(green, blue);
+}
+
+.botao {
+	width: 90px;
+	height: 25px;
+	border: thick;
+	background-color: #007DA9;
+	font-size: 12px;
+	font-family: Arial, serif;
+	font-weight: bold;
+	color: #000;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px 2px #E6E6E6;
+	background-image: -moz-linear-gradient(top center, #BFEFFF, #9AC0CD);
+}
+
+.botaoModal {
+	width: 70px;
+	height: 20px;
+	border: thick;
+	font-weight: bold;
+	font-family: Helvetica, sans-serif;
+	border-radius: 5px;
+}
+
+.tabela {
+	font-family: Arial, sans-serif; ,
+	font-weight: bold;
+	font-size: 12px;
+	width: 880px;
+	background-color: #FFF;
+	margin: auto;
+	border-radius: 5px;
+	border: 1px solid #000;
+	border-collapse: collapse;
+}
+
+.tabela td {
+	border: 1px solid #000;
+	height: 30px;
+	text-align: center;
+}
+
+.tabela tr:hover {
+	background: #E0FFFF;
+}
+
+.coluna1 {
+	text-align: center;
+	width: 40px;
+}
+
+.coluna2 {
+	text-align: center;
+}
+
+.colunaEditarExcluir {
+	width: 5px;
+	text-align: center;
+}
+
+.cabecalhoTabela {
+	background-color: #008B8B;
+	color: #FFF;
+	height: 25px;
+}
+
+.linha1 {
+	background-color: #FFF;
+}
+
+.linha2 {
+	background-color: #9AFF9A;
+}
+
+#tituloCadPaciente {
+	font-family: Arial, serif;
+	font-size: 25px;
+}
+
+#fieldCadastro {
+	width: 40%;
+	margin-left: 60px;
+}
+
+.formulario {
+	margin-left: auto;
+	margin-right: auto;
+	width: 900px;
+}
+
+.fieldSetFormulario {
+	border: 1px solid #CCC;
+	border-radius: 0;
+}
+
+#formMedico fieldset legend {
+	font-size: 12px;
+	color: #5D6B74;
+	font-weight: bold;
+	border-bottom: 1px;
+}
+
+.fsFormMedico {
+	background-color: #FFF;
+	border: thick;
+}
+
+.tituloFormulario {
+	background-image: -moz-linear-gradient(center top, #BFEFFF, #FFF);
+	width: 480px;
+	margin: 0 auto;
+	border: 0;
+	color: #5D6B74;
+}
+
+#fieldConsultaPaciente {
+	background-image: -moz-linear-gradient(center top, #BFEFFF, #FFF);
+	border-radius: 10px;
+}
+
+.botaoPesquisa {
+	float: right;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	background-repeat: no-repeat;
+	background-position: 5%;
+	color: #369;
+	font-family: verdana, sans-serif;
+	font-size: 70%;
+	font-weight: bold;
+	background-color: #FFF;
+	border: 1px solid;
+	border-top-color: #CCC;
+	border-left-color: #CCC;
+	border-right-color: #333;
+	border-bottom-color: #333;
+	border-radius: 4px;
+	width: 100px;
+	height: 25px;
+	padding-left: 20px;
+	background-image: url("../resources/imagens/search-blue.gif");
+}
+
+.botaoEditar {
+	float: right;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	background-repeat: no-repeat;
+	background-position: 5%;
+	color: #369;
+	font-family: verdana, sans-serif;
+	font-size: 70%;
+	font-weight: bold;
+	background-color: #FFF;
+	border: 1px solid;
+	border-top-color: #CCC;
+	border-left-color: #CCC;
+	border-right-color: #333;
+	border-bottom-color: #333;
+	border-radius: 4px;
+	width: 100px;
+	height: 25px;
+	padding-left: 20px;
+	background-image: url("../resources/imagens/edit-page-blue.gif");
+}
+
+.botaoPesquisa:hover {
+	background-color: #E0FFFF;
+	background: url("../resources/imagens/edit-page-blue.gif");
+}
+
+#pesq{
+	width: 800px;
+	margin: 0 auto;
+	
+}
+
+.ui-datatable tr:hover{
+	background: #BFEFFF;
+}
+.ui-datatable-even{
+	
+}
+
+.ui-datatable-odd{
+	background: #F5F5F5;
+}
+
+.ui-button:hover{
+	background: #BFEFFF;
+}

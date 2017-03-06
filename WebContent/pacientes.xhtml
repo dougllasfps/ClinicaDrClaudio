@@ -1,0 +1,208 @@
+<ui:composition template="/resources/template/layoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<ui:define name="conteudo">
+
+		<!-- inicio do formulario -->
+		<h:form
+			rendered="#{pacienteController.adicionando or pacienteController.editando}">
+			<!-- cabecalho do formulario -->
+			<fieldset class="tituloFormulario">
+				<h:panelGrid columns="3">
+					<h:graphicImage url="/resources/imagens/icone_paciente.png" />
+					<h1 style="color: #5D6B74; font-size: 20px;">
+						<h:outputText rendered="#{pacienteController.adicionando}"
+							value="Cadastro de	Paciente" />
+						<h:outputText rendered="#{pacienteController.editando}"
+							value="Editando 
+						Paciente" />
+					</h1>
+					<p:messages autoUpdate="true" globalOnly="true" closable="true" />
+				</h:panelGrid>
+			</fieldset>
+
+			<div class="formulario">
+
+				<h:panelGrid columns="1" style="margin: 0 auto; ">
+					<p:outputLabel value="N° Paciente" for="numPaciente" />
+					<p:inputText id="numPaciente"
+						value="#{pacienteController.paciente.numPaciente}" required="true"
+						requiredMessage="campo obrigatório" size="10" />
+
+					<p:outputLabel value="Nome Completo" for="nome" />
+					<p:inputText id="nome" value="#{pacienteController.paciente.nome}"
+						required="true" requiredMessage="campo obrigatório" size="50" />
+
+					<p:outputLabel value="Data Cadastro" for="data" />
+					<p:inputMask mask="99/99/9999" id="data"
+						value="#{pacienteController.paciente.dataCadastro}"
+						required="true" requiredMessage="campo obrigatório" size="20">
+						<f:convertDateTime locale="pt_BR" timeZone="GMT-3"
+							pattern="dd/MM/yyyy" />
+					</p:inputMask>
+
+					<p:outputLabel value="Endereço" for="end" />
+					<p:inputText id="end"
+						value="#{pacienteController.paciente.endereco}" required="true"
+						requiredMessage="campo obrigatório" size="60" />
+
+					<p:outputLabel value="Convenio" for="convenio" />
+					<p:inputText id="convenio"
+						value="#{pacienteController.paciente.convenio}" required="true"
+						requiredMessage="campo obrigatório" size="30" />
+
+					<p:outputLabel value="Sexo" for="sexo" />
+					<p:selectOneMenu id="sexo"
+						value="#{pacienteController.paciente.sexo}" required="true"
+						requiredMessage="campo obrigatório">
+						<f:selectItem noSelectionOption="true" itemLabel="Selecione.." />
+						<f:selectItems value="#{pacienteController.sexos}" />
+					</p:selectOneMenu>
+
+					<f:facet name="footer">
+						<p:commandButton value="Salvar" icon="ui-icon-disk"
+							action="#{pacienteController.salvar}" ajax="false"
+							rendered="#{pacienteController.adicionando}" />
+						<p:commandButton value="Editar" icon="ui-icon-disk"
+							action="#{pacienteController.editar}" ajax="false"
+							rendered="#{pacienteController.editando}" />
+						<p:spacer width="25" />
+						<p:commandButton value="Cancelar" icon="ui-icon-cancel"
+							action="#{pacienteController.voltar}" ajax="false"
+							immediate="true" />
+					</f:facet>
+				</h:panelGrid>
+
+			</div>
+			<!-- fim do formulario -->
+		</h:form>
+
+		<!-- formulario pesquisa -->
+		<h:form rendered="#{pacienteController.pesquisando}">
+		
+			<fieldset id="pesq" style="width: 810px; margin-left: 55px;">
+			
+				<legend>Pesquisa Paciente</legend>
+				<div>
+
+					<h:panelGrid columns="3" cellpadding="5" cellspacing="5">
+					<h:panelGroup>
+						<h:panelGrid columns="2">
+							<p:spacer /> 
+							<p:outputLabel value="N° Paciente" for="numPaciente" />
+							
+							<p:spacer />
+							<p:inputText id="numPaciente" value="#{pacienteController.pacienteFiltro.numPaciente}"	size="10" />
+						</h:panelGrid >
+					</h:panelGroup>
+						<h:panelGroup>
+
+							<h:panelGrid columns="2">
+								
+								<h:outputText value="" />
+								<p:outputLabel value="Nome Paciente" for="nome" />
+
+								<p:selectOneMenu value="#{pacienteController.select}">
+									<f:selectItem itemLabel="contem" itemValue="0" />
+									<f:selectItem itemLabel="comeca com" itemValue="1" />
+								</p:selectOneMenu>
+
+								<p:inputText id="nome"	value="#{pacienteController.pacienteFiltro.nome}" size="70" />
+								
+							</h:panelGrid>
+							
+						</h:panelGroup>
+						
+						</h:panelGrid>
+						<h:panelGrid columns="3">
+							<p:outputLabel value="Data Cadastro" />
+							<p:outputLabel value="Convenio" for="convenio" />
+							<p:outputLabel value="Ordernação" />
+							
+							<h:panelGroup>
+
+								<h:panelGrid columns="4">
+									<p:outputLabel value="entre" for="dataInicial" />
+									<p:inputMask mask="99/99/9999" id="dataInicial"
+										value="#{pacienteController.dataInicial}"
+										size="10">
+										<f:convertDateTime locale="pt_BR" timeZone="GMT-3"
+											pattern="dd/MM/yyyy" />
+									</p:inputMask>
+									<p:outputLabel value="e" for="dataFinal" />
+									<p:inputMask mask="99/99/9999" id="dataFinal"
+										value="#{pacienteController.dataFinal}"
+										size="10">
+										<f:convertDateTime locale="pt_BR" timeZone="GMT-3"
+											pattern="dd/MM/yyyy" />
+									</p:inputMask>
+								</h:panelGrid>
+							</h:panelGroup>
+							
+							
+							<p:inputText id="convenio"
+								value="#{pacienteController.pacienteFiltro.convenio}" size="30" />
+							<p:selectOneRadio value="#{pacienteController.order}">
+								<f:selectItem itemLabel="nome" itemValue="nome"/>
+								<f:selectItem itemLabel="numero" itemValue="numPaciente"/>
+							</p:selectOneRadio>	
+						
+
+						</h:panelGrid>
+						<h:panelGrid>
+							<f:facet name="footer">
+								<p:commandButton value="Pesquisar" icon="ui-icon-search"
+									update="tabela" action="#{pacienteController.pesquisa}" />
+								<p:spacer width="25" />
+								<p:commandButton value="Cadastrar Novo" icon="ui-icon-plus" ajax="false"
+									action="#{pacienteController.novo}" />
+							</f:facet>
+						</h:panelGrid>
+				</div>
+				<p:messages autoUpdate="true" closable="true" />
+			</fieldset>
+			<p:spacer height="30"></p:spacer>
+			<p:dataTable id="tabela" value="#{pacienteController.pacientes}" style="width: 95%; margin: 0 auto;"
+				var="row" paginator="true" rows="15" paginatorPosition="bottom"
+				scrollable="true" scrollHeight="400">
+
+				<p:column headerText="N° Paciente" width="50">
+					<h:outputText value="#{row.numPaciente}" />
+				</p:column>
+				<p:column headerText="Nome Completo">
+					<h:outputText value="#{row.nome}" />
+				</p:column>
+				<p:column headerText="Sexo" width="30">
+					<h:outputText value="#{row.sexo}" />
+				</p:column>
+				<p:column headerText="Convenio" width="100">
+					<h:outputText value="#{row.convenio}" />
+				</p:column>
+				<p:column headerText="Endereço" width="150">
+					<h:outputText value="#{row.endereco}" />
+				</p:column>
+				<p:column headerText="Data Cadastro" width="70">
+					<h:outputText value="#{row.dataCadastro}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Editar" width="35">
+					<p:commandButton icon="ui-icon-pencil"
+						action="#{pacienteController.prepareEditar}" ajax="false">
+						<f:setPropertyActionListener
+							target="#{pacienteController.paciente}" value="#{row}" />
+					</p:commandButton>
+				</p:column>
+				
+				<f:facet name="header" >
+					<h:outputText value="Total de resultados: #{pacienteController.pacientes.size()}" />
+				</f:facet>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

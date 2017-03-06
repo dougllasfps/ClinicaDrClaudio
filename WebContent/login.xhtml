@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Centro Médico Parquelandia - Login</title>
+	<h:outputStylesheet library="css" name="default.css" />
+	<style type="text/css">
+body {
+	font-family: Arial, serif;
+	color: #000;
+	background-image: -moz-linear-gradient(top center, #FFF, #B2DFEE);
+}
+
+h1 {
+	border-bottom: 5px solid #FFF;
+	display: inherit;
+	padding: 20px;
+}
+
+fieldset {
+	width: 50%;
+	border-radius: 10px;
+	text-align: left;
+	margin: auto;
+}
+
+legend {
+	font-family: Arial, serif;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+p {
+	font-family: Arial, serif;
+	font-size: 11px;
+}
+
+#principal {
+	text-align: center;
+}
+
+#login {
+	width: 500px;
+	height: 350px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px #000;
+	margin: auto;
+	background-image: -moz-linear-gradient(top center, #E0FFFF, #00C5CD);
+	text-align: center;
+	margin-top: 250px;
+	margin-bottom: 280px;
+}
+
+.label {
+	color: #000;
+	font-size: 11px;
+}
+
+.button {
+	width: 90px;
+	height: 25px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #FFF;
+	color: #000;
+}
+
+.messages {
+	font-family: arial, sans-serif;
+	font-weight: bold;
+	padding: 10px;
+	text-align: center;
+	color: red;
+	font-size: 10px;
+	border-style: dotted;
+	border-color: red;
+}
+}
+</style>
+</h:head>
+<h:body>
+	<div id="login">
+	<h:form>
+		<h1>Dr. Claudio</h1>
+		<fieldset>
+			<legend>Entre com usuário e senha</legend>
+			<h:panelGrid columns="1">
+				<h:outputLabel value="Login" styleClass="label" />
+				<h:inputText styleClass="input" size="30" value="#{usuarioController.usuario.login}"/>
+				<h:outputLabel value="Senha" styleClass="label" />
+				<h:inputSecret styleClass="input" size="30" value="#{usuarioController.usuario.senha}"/>
+				<h:outputText />
+				<h:commandButton styleClass="button" value="entrar" action="#{usuarioController.login}" />
+				<p:messages autoUpdate="true" closable="true"/>
+			</h:panelGrid>
+			
+		</fieldset>
+		<p>
+			Rua Prof. Lino da Encarnação 717, Parquelândia
+			<br /> Fortaleza - CE
+			- Brasil
+		</p>
+	</h:form>
+	</div>
+	
+</h:body>
+</html>
+
