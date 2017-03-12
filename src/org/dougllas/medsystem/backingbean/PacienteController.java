@@ -69,15 +69,13 @@ public class PacienteController extends BackingBeanGenerico implements
 		if(getOrder().trim().equals("")){
 			setOrder("nome");
 		}
-		
-		
 			
 		List<Paciente> pesqList = pacienteDao.listByExample(pacienteFiltro, select, dataInicial, dataFinal, order);
 
 		if (pesqList != null && pesqList.size() != 0) {
 			this.pacientes = pesqList;
 		} else {
-			adicionaMensagemDeErro("Paciente(s) não encontrado(s) tente outros parametros!");
+			adicionaMensagemDeErro("Paciente(s) nï¿½o encontrado(s) tente outros parametros!");
 		}
 	}
 
@@ -90,7 +88,8 @@ public class PacienteController extends BackingBeanGenerico implements
 		setState(SEARCH_STATE);
 	}
 
-	public void prepareEditar() {
+	public void prepareEditar(Paciente paciente) {
+		this.paciente = paciente;
 		setState(EDIT_STATE);
 	}
 

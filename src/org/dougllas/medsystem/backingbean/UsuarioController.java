@@ -36,7 +36,7 @@ public class UsuarioController extends BackingBeanGenerico implements Serializab
 			session.setAttribute("usuario", u);
 			adicionaMensagemDeInformacao("Bem vindo!");
 			setUsuario(u);
-			return "pacientes";
+			return "/pages/pacientes";
 		}
 	}
 	
